@@ -7,10 +7,12 @@ import { DictionaryService } from './services';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  results;
 
   constructor(public dictionaryService: DictionaryService) {}
 
   define(word: string) {
-    this.dictionaryService.define(word).subscribe(def => console.log(def));
+    this.dictionaryService.define(word).subscribe(res => this.results = res["results"]);
+    console.log(this.results);
   }
 }

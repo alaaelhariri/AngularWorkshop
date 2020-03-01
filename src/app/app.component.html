@@ -9,4 +9,7 @@
   <button mat-button (click)="define(word.value)">Search</button>
 </mat-toolbar>
 
-Welcome to the Dictionary
+<h2 *ngIf="results">Definitions</h2>
+<ul *ngFor="let r of results">
+  <li>{{ r.definition }}</li>
+</ul>
