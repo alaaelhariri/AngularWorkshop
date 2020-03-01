@@ -8,9 +8,11 @@ import { DictionaryService } from './services';
 })
 export class AppComponent {
 
+  definition;
+
   constructor(public dictionaryService: DictionaryService) {}
 
   define(word: string) {
-    this.dictionaryService.define(word).subscribe(def => console.log(def));
+    this.dictionaryService.define(word).subscribe(def => this.definition = def);
   }
 }

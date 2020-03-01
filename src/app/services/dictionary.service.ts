@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import dictionary from './mock-data/dictionary-data';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,16 @@ export class DictionaryService {
   constructor(public httpClient: HttpClient) {
   }
 
-  define(word: string): Observable<any> {
+  define(word): Observable<any> {
+    const definition = dictionary[word];
+    if (!definition) {
+      console.error('Word not found in dictionary.');
+      return;
+    }
+    return of(definition);
+  }
+
+  httpDefine(word: string): Observable<any> {
     const httpOptions = {
       headers: new HttpHeaders({
         Accept: 'application/json',
