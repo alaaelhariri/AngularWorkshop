@@ -7,12 +7,4 @@ import { DictionaryService } from './services';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-
-  definition;
-
-  constructor(public dictionaryService: DictionaryService) {}
-
-  define(word: string) {
-    this.dictionaryService.define(word).subscribe(def => this.definition = def);
-  }
 }

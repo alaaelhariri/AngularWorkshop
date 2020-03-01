@@ -1,32 +1,4 @@
-<mat-toolbar>
-  <span>Dictionary</span>
-  <span>
-    <mat-form-field>
-      <!-- <mat-label>Type search word...</mat-label> -->
-      <input #word matInput placeholder="Enter Search Word" (keyup.enter)="define(word.value)">
-    </mat-form-field>
-  </span>
-  <button mat-button (click)="define(word.value)">Search</button>
-</mat-toolbar>
 
-<div>
-  Welcome to the Dictionary
-</div>
+<app-header></app-header>
 
-<div *ngIf="definition">
-  <div *ngFor="let result of definition.results">
-    <mat-card *ngFor="let entry of result.lexicalEntries">
-      <mat-card-title> {{result.id}} </mat-card-title>
-      <mat-card-subtitle> {{entry.lexicalCategory.text}} </mat-card-subtitle>
-      <mat-card-content>
-        <div *ngFor="let defEntries of entry.entries">
-          <div *ngFor="let sense of defEntries.senses">
-            <p *ngFor="let def of sense.definitions">
-              {{def}}
-            </p>
-          </div>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</div>
+<router-outlet></router-outlet>

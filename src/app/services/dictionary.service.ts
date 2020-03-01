@@ -15,7 +15,7 @@ export class DictionaryService {
     const definition = dictionary[word];
     if (!definition) {
       console.error('Word not found in dictionary.');
-      return;
+      return of(null);
     }
     return of(definition);
   }

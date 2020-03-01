@@ -1,0 +1,17 @@
+<div *ngIf="definition">
+    <div *ngFor="let result of definition.results">
+        <mat-card *ngFor="let entry of result.lexicalEntries">
+            <mat-card-title> {{result.id}} </mat-card-title>
+            <mat-card-subtitle> {{entry.lexicalCategory.text}} </mat-card-subtitle>
+            <mat-card-content>
+                <div *ngFor="let defEntries of entry.entries">
+                    <div *ngFor="let sense of defEntries.senses">
+                        <p *ngFor="let def of sense.definitions">
+                            {{def}}
+                        </p>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

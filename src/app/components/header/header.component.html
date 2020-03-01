@@ -1,0 +1,9 @@
+<mat-toolbar>
+    <span>Dictionary</span>
+    <span>
+        <mat-form-field appearance="standard">
+            <input #word matInput placeholder="Enter Search Word" (keyup.enter)="goToDefinition(word.value)">
+        </mat-form-field>
+    </span>
+    <button mat-button (click)="goToDefinition(word.value)">Search</button>
+</mat-toolbar>
